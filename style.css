@@ -2,7 +2,6 @@ body {
   margin: 0;
   padding: 0;
   border: 0;
-
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   background: url("/blackjack.jpg");
@@ -23,9 +22,9 @@ p {
   font-size: 30px;
 }
 
-#btn-wrapper {
+/* #btn-wrapper {
   text-align: center;
-}
+} */
 
 button {
   color: #015c30;
