@@ -1,3 +1,7 @@
+let player = {
+  name: "Pack",
+  chips: 145,
+};
 let cards = [];
 let sum = 0;
 let hasBlackJack = false;
@@ -8,7 +12,9 @@ let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
 let cardsEl = document.getElementById("cards-el");
 
-// console.log(cards);
+// Player
+let playerEl = document.getElementById("player-el");
+playerEl.textContent = player.name + ":  $" + player.chips;
 
 // Start Game Functionality begin here
 function startGame() {
@@ -21,7 +27,7 @@ function startGame() {
   sum = firstCard + secondCard;
   renderGame();
 }
-// Create a function, getRandomCard(), that always returns the number 5
+// Create a function, getRandomCard()
 function getRandomCard() {
   let randomNumber = Math.floor(Math.random() * 13) + 1;
   if (randomNumber > 10) {
@@ -35,9 +41,7 @@ function getRandomCard() {
 
 // render Game Functionality begin here
 function renderGame() {
-  // cardsEl.textContent = "Cards: " + cards[0] + " " + cards[1];
   cardsEl.textContent = "Cards: ";
-  // Create a for loop that renders out all the cards instead of just two
   for (i = 0; i < cards.length; i++) {
     cardsEl.textContent += cards[i] + " ";
   }
@@ -57,15 +61,12 @@ function renderGame() {
 
 // New card Functionality
 newCard.addEventListener("click", function () {
-  // 1. Create a card variable, and hard code its value to a number (2-11)
-  let card = getRandomCard();
-
-  // 2. Add the new card to the sum variable
-  console.log(sum);
-  sum += card;
-  // Push the card to the cards array
-  cards.push(card);
-  console.log(cards);
-  // 3. Call startGame()
-  renderGame();
+  if (isAlive === true && hasBlackJack === false) {
+    let card = getRandomCard();
+    sum += card;
+    // Push the card to the cards array
+    cards.push(card);
+    // Call startGame()
+    renderGame();
+  }
 });
